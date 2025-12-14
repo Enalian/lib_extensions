@@ -49,3 +49,14 @@ function table.Slice( tbl, from, to )
     end
     return sliced
 end
+
+function table.SortDouble( tbl )
+    if not istable(tbl) or not table.IsSequential(tbl) then return tbl end
+
+    local ntbl = {}
+    for _, v in ipairs(tbl) do
+        if not table.HasValue(ntbl, v) then table.insert(ntbl, v) end
+    end
+
+    return ntbl
+end
